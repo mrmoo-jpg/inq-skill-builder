@@ -4,10 +4,10 @@ Full task details, acceptance criteria, and dependencies: `plan.md`. Spec: `../S
 
 ## Phase 0: Foundation
 - [x] 1. Vendor upstream Apache components + write LICENSE/attribution
-- [ ] 2. Write the builder's own evals (≥3) + fixture repo — BEFORE any SKILL.md
+- [x] 2. Write the builder's own evals (≥3) + fixture repo — BEFORE any SKILL.md
 
 ### Checkpoint A
-- [ ] Vendored + licensed; evals committed first; human glance at eval prompts
+- [ ] Vendored + licensed; evals committed first; human glance at eval prompts (still pending: human glance)
 
 ## Phase 1: Golden-path slice
 - [ ] 3. Elicitation working session with Owen → `tasks/elicitation-decisions.md`
