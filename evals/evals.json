@@ -12,8 +12,8 @@
         "At some point before or during the build, Claude actually shows an attempt at the executive-summary task WITHOUT the new skill — a visible 'before' output the user can compare against, not just a claim that a baseline was considered.",
         "The conversation contains at least one explain-the-why sentence tied to a concrete craft decision (e.g., why it's asking for an example, why it tests before calling the build done), written in plain language rather than as a bare imperative or an ALL-CAPS rule.",
         "If Claude uses any of the terms 'eval', 'frontmatter', 'assertion', 'YAML', or 'SKILL.md' in the conversation, each first use carries a same-turn plain-language gloss; an unglossed use of any of these terms is a fail.",
-        "The session ends with an actual downloadable zip file delivered in the chat (or an exact, correct description of how to get one) — the user is never asked to open a terminal or run a command themselves.",
-        "The finished skill includes a BUILD-MANIFEST.md (or, if not directly inspectable, Claude describes writing one with concrete contents) recording what was built and what was tested. A skill delivered with no manifest, or a manifest promised but never produced, is a fail."
+        "The session ends with an actual downloadable zip file delivered in the chat — the user is never asked to open a terminal or run a command themselves, and a narrated description of how to get a zip without actually producing one is a fail.",
+        "The finished skill includes an actual BUILD-MANIFEST.md recording what was built and what was tested. A skill delivered with no manifest, or a manifest merely promised or described but never produced, is a fail."
       ]
     },
     {
@@ -38,7 +38,8 @@
         "Claude asks no more than 2-3 net-new clarifying questions — it does not re-ask anything the template, process doc, or taxonomy file already answer (report structure, section names, tag vocabulary, evidence requirement).",
         "At least one explain-the-why sentence in the conversation ties a decision to the specific artifacts found (e.g., why grounding a question in the two examples matters), rather than a generic explanation that would fit any project regardless of what was scanned.",
         "If Claude uses jargon ('eval', 'frontmatter', 'assertion', 'manifest') it glosses each in plain language on first use.",
-        "The finished skill's BUILD-MANIFEST.md (or its described contents) names the specific artifacts scanned (template, taxonomy, the two example reports) rather than a generic 'reviewed provided materials' line."
+        "The finished skill's actual BUILD-MANIFEST.md names the specific artifacts scanned (template, taxonomy, the two example reports) rather than a generic 'reviewed provided materials' line.",
+        "The session ends with an actual, versioned zip delivered in the chat — the grounded scan and questioning do not consume the session at the expense of finishing the golden path."
       ]
     },
     {
