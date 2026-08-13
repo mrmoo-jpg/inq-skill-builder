@@ -3,7 +3,7 @@
 Full task details, acceptance criteria, and dependencies: `plan.md`. Spec: `../SPEC.md`.
 
 ## Phase 0: Foundation
-- [ ] 1. Vendor upstream Apache components + write LICENSE/attribution
+- [x] 1. Vendor upstream Apache components + write LICENSE/attribution
 - [ ] 2. Write the builder's own evals (≥3) + fixture repo — BEFORE any SKILL.md
 
 ### Checkpoint A
