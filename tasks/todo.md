@@ -10,7 +10,7 @@ Full task details, acceptance criteria, and dependencies: `plan.md`. Spec: `../S
 - [ ] Vendored + licensed; evals committed first; human glance at eval prompts (still pending: human glance)
 
 ## Phase 1: Golden-path slice
-- [ ] 3. Elicitation working session with Owen → `tasks/elicitation-decisions.md`
+- [x] 3. Elicitation working session with Owen → `tasks/elicitation-decisions.md`
 - [ ] 4. `references/elicitation.md`
 - [ ] 5. SKILL.md v0 — enduring core, teaching voice, router (≤300 lines)
 - [ ] 6. `references/qa-light.md`
