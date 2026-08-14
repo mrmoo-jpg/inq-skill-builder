@@ -42,6 +42,10 @@ This project keeps `inq-skill-builder` (noun form) as a deliberate brand deviati
 
 **⚠ UNCONFIRMED — value format.** The field exists in the allowlist and is documented as declaring supported surfaces/environments, but the platform docs do not spell out its expected format (string? list? controlled vocabulary?) as of this pass. One concrete, verifiable fact independent of the research report: `quick_validate.py` (vendored, unmodified) enforces it as a plain string, max 500 characters, if present at all — that's an implementation detail of the vendored validator, not a confirmed platform spec. Until the format is confirmed, treat `compatibility` as optional and omit it rather than guess a structure that might fail silently elsewhere.
 
+## In-progress sign-off markers (YAML comments)
+
+While a frontmatter value is still provisional — awaiting the skill owner's sign-off, for example — mark it with a plain YAML comment (`# ...`) on its own line above the field, e.g. `# PROVISIONAL description — ...`. YAML comments parse safely: `quick_validate.py`'s `yaml.safe_load` ignores them, so a marked-up SKILL.md still validates and the frontmatter allowlist check above is unaffected. But a shipped zip must never carry one — it's an authoring note, not a field. Strip the comment line when packaging a release candidate (from a temp copy, not the repo file — the marker stays in-repo until sign-off happens), and confirm with a `grep` on the unzipped output that no `# PROVISIONAL` (or similar) line survived. Once sign-off happens, delete the comment from the repo file itself rather than carrying it forward.
+
 ## Also relevant
 
 `skill/scripts/quick_validate.py` (vendored, unmodified) is the fast local check for all of the above except the claude.ai-specific 200-char description question — see `packaging-and-install.md` for the command.

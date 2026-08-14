@@ -37,7 +37,7 @@ Full task details, acceptance criteria, and dependencies: `plan.md`. Spec: `../S
 - [x] SPEC success-criteria sweep (non-manual items) — all PASS except description sign-off (Owen gate, carried to Task 15); manual items deferred per plan
 
 ## Phase 4: Package + real world
-- [ ] 15. Package v1 + install tests (Claude Code auto; Claude.ai manual by Owen)
+- [ ] 15. Package v1 + install tests (Claude Code auto; Claude.ai manual by Owen) — auto half DONE (RC zip in dist/, Claude Code install + trigger PASS); remaining: Owen confirms description pick, re-cut v1, Claude.ai upload test
 - [ ] 16. Dogfood build #1 — Owen, real skill, in-repo
 - [ ] 17. Dogfood build #2 — non-engineer on Claude.ai → fixes → v2
 
