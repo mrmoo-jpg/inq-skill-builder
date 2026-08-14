@@ -15,7 +15,7 @@ Full task details, acceptance criteria, and dependencies: `plan.md`. Spec: `../S
 - [x] 5. SKILL.md v0 — enduring core, teaching voice, router (≤300 lines)
 - [x] 6. `references/qa-light.md`
 - [x] 7. Dated tactics files ×4 (stamped, sourced)
-- [ ] 8. `references/manifest.md` + BUILD-MANIFEST template + check-up flow
+- [x] 8. `references/manifest.md` + BUILD-MANIFEST template + check-up flow
 
 ### Checkpoint B
 - [ ] quick_validate passes; no dead-end routes; human review of SKILL.md voice
