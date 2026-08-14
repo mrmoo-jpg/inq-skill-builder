@@ -1,0 +1,22 @@
+[
+  {"query": "can u help me turn my onboarding checklist into a claude skill", "should_trigger": true},
+  {"query": "I keep re-explaining how i write these reports, can that be automated into a skil for claude", "should_trigger": true},
+  {"query": "package this up as an installable skill i can share with my team", "should_trigger": true},
+  {"query": "check up on my old skill, has it gone stale", "should_trigger": true},
+  {"query": "make a skill outta this weekly process i keep repeating", "should_trigger": true},
+  {"query": "help me build a claude skill from scratch, i have no idea where to start", "should_trigger": true},
+  {"query": "turn what I know about tagging research interviews into something claude can just do automatically", "should_trigger": true},
+  {"query": "I have a folder of examples, can you scan them and build a skill for summarizing verbatims", "should_trigger": true},
+  {"query": "we need to package and version this skill before sharing the zip with the team", "should_trigger": true},
+  {"query": "test my skill against some real examples before I hand it off, is it ready", "should_trigger": true},
+  {"query": "what skills do I need to land a UX research job", "should_trigger": false},
+  {"query": "help me improve my excel skills, i use vlookup wrong all the time", "should_trigger": false},
+  {"query": "whats the best skill build for a rogue in this game", "should_trigger": false},
+  {"query": "write a system prompt for my customer support chatbot", "should_trigger": false},
+  {"query": "set up an mcp server that connects to our database", "should_trigger": false},
+  {"query": "check up on the status of my project deadline, are we on track", "should_trigger": false},
+  {"query": "package my python app into a windows executable", "should_trigger": false},
+  {"query": "teach me a new skill for cooking, something quick on weeknights", "should_trigger": false},
+  {"query": "whats the claude skills marketplace look like, just curious what's out there", "should_trigger": false},
+  {"query": "build me an agent that can browse the web and file expense reports", "should_trigger": false}
+]

@@ -1,7 +1,7 @@
 ---
 name: inq-skill-builder
-# Placeholder description — Task 13 replaces this with the tuned final wording.
-description: Turn work you know how to do into a tested, packaged Claude skill. Scans your examples, interviews you for what is missing, shows a before-and-after, tests the result, and delivers an installable zip. Use when someone wants to create, improve, check up on, or package a skill.
+# PROVISIONAL description — Owen must confirm or swap; candidates + scoring in tasks/description-candidates.md
+description: Turns tacit know-how into a packaged Claude skill, tested on real examples before delivery as a versioned zip. Use to build, improve, QA, or check up on a Claude skill, not general job skills.
 license: Apache-2.0
 ---
 
