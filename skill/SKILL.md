@@ -114,6 +114,13 @@ Write the skill from the confirmed frame. Craft notes that matter most:
 - **Carry the user's evidence in.** The examples and criteria from step 1
   become the built skill's reference material — the user saw the found-list
   and curated it, so nothing arrives unexplained.
+- **Invent the examples you write into the skill.** When the built skill's
+  own instructions need an illustrative example — "a note like 'the total
+  jumped at checkout'" — make one up. Never lift a real name, email, quote,
+  or other identifying detail out of the user's source material to use as
+  the example, even to illustrate the very rule that strips it. The skill
+  ships and travels; a real person's detail baked into it as a sample
+  outlives the conversation that had permission for it.
 - **Explain why inside the built skill too.** Instructions hold up better
   when they carry their reasons — a skill that says *why* the rule exists
   lets Claude apply it sensibly to cases the wording didn't anticipate.
@@ -178,8 +185,12 @@ pitch.
   feel too basic to bother with — *skill*, *frontmatter*, *manifest*, *eval*,
   *trigger* — which are exactly the ones a non-engineer hasn't met; if a word
   names something specific to how skills are built, gloss it however ordinary
-  it feels to you. If they demonstrably know the terms, drop the glosses;
-  take your cue from their vocabulary, not their job title.
+  it feels to you — and that includes the filenames, not just the concepts:
+  the first time you say `SKILL.md` or `BUILD-MANIFEST.md`, name what the file
+  is ("the SKILL.md — the instruction file Claude actually reads") rather than
+  assuming the extension speaks for itself. If they demonstrably know the
+  terms, drop the glosses; take your cue from their vocabulary, not their job
+  title.
 - **Teach in passing, not in blocks.** The explain-why lines belong at the
   decision they explain. If you notice three teaching sentences in a row,
   you've started lecturing — cut two.
