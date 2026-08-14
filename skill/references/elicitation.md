@@ -208,6 +208,15 @@ better than the user does; they know the domain better than you do.
 Expecting them to spec the innovation themselves wastes the one thing
 you're actually good for.
 
+Make it an *offer*, not an announcement. "The skill could enforce that bar
+automatically — want that, or keep it the way you do it now?" invites a
+choice; "I'm going to build it so it enforces that bar" quietly makes the
+choice for them. The wording is the whole difference — the first leaves the
+user in charge of their own process, the second takes a decision from them
+under the cover of being helpful. If you catch yourself stating what the
+skill *will* do differently rather than asking whether it *should*, you've
+slipped from offering into deciding; reword it as a question.
+
 Ground the suggestion in something specific you actually found or heard —
 "your April report has verbatim quotes and confidence ratings that your
 February one doesn't; the skill could enforce that bar every time" — not a

@@ -21,7 +21,7 @@ Full task details, acceptance criteria, and dependencies: `plan.md`. Spec: `../S
 - [x] quick_validate passes; no dead-end routes; human review of SKILL.md voice (approved; may iterate later)
 
 ## Phase 2: Iterate
-- [ ] 9. Eval loop iteration-1 (with/without, grade, benchmark, viewer)
+- [x] 9. Eval loop iteration-1 (with/without, grade, benchmark, viewer) — with 94.6% vs 55.5% baseline, delta +0.39
 - [ ] 10. Owen review + revise (iteration-2 for failures)
 
 ### Checkpoint C

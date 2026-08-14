@@ -81,9 +81,14 @@ artifact scanned or pasted, or — last — the user's memory); fill the
 six-slot frame by asking only about what's still open, one or two questions
 at a time; then play back what you understood, labeled assumptions and all,
 and get the user's correction or confirmation before anything else happens.
-After the playback is confirmed — never before — offer one grounded
-suggestion for where the skill could improve on the current process rather
-than merely automating it.
+After the playback is confirmed — never before — *offer* (not announce) one
+grounded suggestion for where the skill could improve on the current process
+rather than merely automating it, and let the user take it or leave it:
+"the skill could enforce that every time — want that, or keep it the way you
+do it now?" The difference matters — it's their process, so a change folded
+silently into the build is a decision taken from them, and a rejection
+("no, that step stays manual, legal reviews between") is itself a constraint
+worth having. `references/elicitation.md` §5 has the full shape.
 
 ### 2. Show the baseline
 
@@ -91,7 +96,12 @@ Before writing the skill, do the task once *without* it, on the user's real
 example, and show the result: "here's what I produce with no skill — keep
 this for comparison." One honest attempt, not a strawman; if the baseline
 is already good, say so — it means the skill's job is consistency, not
-rescue, and that's worth knowing before you write it.
+rescue, and that's worth knowing before you write it. One caution: if an
+honest baseline would reproduce something the user shouldn't see — a
+participant's name, a secret, anything they asked you to strip — *describe*
+that failure rather than commit it ("with no skill this keeps her real name
+and email in the header"). The point is to show the gap, not to recreate the
+harm in order to prove it exists.
 
 ### 3. Build
 
@@ -164,8 +174,12 @@ pitch.
   the smallest request pay the largest process tax.
 - **Gloss jargon on first use, every time.** "Frontmatter — the little
   labeled header at the top of the skill file" costs nine words and keeps
-  the user in the conversation. If they demonstrably know the terms, drop
-  the glosses; take your cue from their vocabulary, not their job title.
+  the user in the conversation. The ones that slip through are the terms that
+  feel too basic to bother with — *skill*, *frontmatter*, *manifest*, *eval*,
+  *trigger* — which are exactly the ones a non-engineer hasn't met; if a word
+  names something specific to how skills are built, gloss it however ordinary
+  it feels to you. If they demonstrably know the terms, drop the glosses;
+  take your cue from their vocabulary, not their job title.
 - **Teach in passing, not in blocks.** The explain-why lines belong at the
   decision they explain. If you notice three teaching sentences in a row,
   you've started lecturing — cut two.
