@@ -14,7 +14,7 @@ Full task details, acceptance criteria, and dependencies: `plan.md`. Spec: `../S
 - [ ] 4. `references/elicitation.md`
 - [ ] 5. SKILL.md v0 — enduring core, teaching voice, router (≤300 lines)
 - [ ] 6. `references/qa-light.md`
-- [ ] 7. Dated tactics files ×4 (stamped, sourced)
+- [x] 7. Dated tactics files ×4 (stamped, sourced)
 - [ ] 8. `references/manifest.md` + BUILD-MANIFEST template + check-up flow
 
 ### Checkpoint B
