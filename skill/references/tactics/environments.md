@@ -12,15 +12,17 @@ Expect this file to age. If reality disagrees with it, trust reality and tell th
 | Pull from GitHub at runtime | Yes | Yes | No |
 | Produce a user-downloadable file | Yes, up to 30 MB/file | N/A (local filesystem) | N/A (caller handles output) |
 | Requires explicit capability toggle | Yes — "Code execution and file creation" in Settings → Capabilities | No | No |
-| Requires terminal / local setup | No | Yes (Claude Code itself is a terminal tool) | Yes (caller's own integration) |
+| Requires terminal / local setup | No | Yes (Claude Code itself is a terminal tool) | No terminal required, but the caller must build and host their own integration around it |
 
 ## What this means for this skill's tiers
 
 | Tier | Environment assumption | Consequence |
 |---|---|---|
 | Golden path (elicit → build → light QA → package) | Claude.ai, zero setup, code execution enabled | Must never require a script the sandbox can't run or a package it can't install — this is the hard floor SPEC.md calls the "zero-setup golden path" |
-| Deep QA tier (`qa-deep.md`) | Best on Claude Code — subprocess calls to `claude -p` (see `triggering.md`'s optimizer) aren't available inside the claude.ai sandbox itself | Route non-Code users to a degraded read-only explanation of what they'd get, per SPEC.md Boundaries; never silently fail |
-| Trigger-optimization loop | Claude Code only | Same reasoning — nested `claude -p` subprocess calls are a Claude Code pattern, not a claude.ai sandbox one |
+| Deep QA tier (`qa-deep.md`) | Best on Claude Code — subprocess calls to `claude -p` (see `triggering.md`'s optimizer) probably aren't available inside the claude.ai sandbox itself* | Route non-Code users to a degraded read-only explanation of what they'd get, per SPEC.md Boundaries; never silently fail |
+| Trigger-optimization loop | Claude Code only* | Same reasoning — nested `claude -p` subprocess calls are a Claude Code pattern, not a claude.ai sandbox one |
+
+*\* Inference, not confirmed by the platform report — `research/platform-capabilities.md` never addresses CLI/subprocess availability in the claude.ai sandbox. The judgment rests on the claude.ai code-execution sandbox being unlikely to ship the Claude Code CLI binary, not on a sourced fact. Verify directly before stating this to a user as settled.*
 
 ## Access & admin prerequisites
 

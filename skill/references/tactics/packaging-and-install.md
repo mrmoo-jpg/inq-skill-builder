@@ -8,7 +8,7 @@ Expect this file to age. If reality disagrees with it, trust reality and tell th
 |---|---|
 | Vendored script | `scripts/package_skill.py` (upstream, unmodified) |
 | What it produces | A ZIP archive named `<skill-folder-name>.skill` — a `.skill` file **is** a ZIP with a different extension |
-| Project convention | Rename the output to `<name>-v<N>.zip` before handing it to the user. Ship `.zip`, not `.skill` — see Open Question below. Never overwrite a previous version's file. |
+| Project convention | Rename the output to `<name>-v<N>.zip` before handing it to the user. Ship `.zip`, not `.skill` — see the UNCONFIRMED note below. Never overwrite a previous version's file. |
 | Root requirement | The skill folder itself must be the ZIP root — no wrapping subfolder |
 | Runs zero-setup? | Yes — confirmed by Anthropic's own skill-creator: *"The `package_skill.py` script works anywhere with Python and a filesystem. On Claude.ai, you can run it and the user can download the resulting `.skill` file."* |
 

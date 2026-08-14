@@ -26,7 +26,9 @@ Expect this file to age. If reality disagrees with it, trust reality and tell th
 | `skill/scripts/improve_description.py` | Feeds failures (both missed triggers and false triggers) back to a fresh Claude call, asks for a structurally different rewrite — explicitly told not to just accumulate an ever-growing list of specific queries, to avoid overfitting |
 | Hard limit enforced in code | 1,024 characters — the optimizer makes a second, "shorten this" call if a generated draft exceeds it |
 
-This loop requires Claude Code (subprocess calls to `claude -p`); it is a Task 13 / dogfooding-tier activity, not part of the zero-setup claude.ai golden path. See `qa-deep.md` for how a user reaches it and `environments.md` for why claude.ai can't run it directly.
+This loop requires Claude Code (subprocess calls to `claude -p`, verified directly by reading the vendored `improve_description.py`); it is a Task 13 / dogfooding-tier activity, not part of the zero-setup claude.ai golden path.
+
+**Inference, not confirmed by the platform report:** `research/platform-capabilities.md` never addresses CLI or subprocess availability inside the claude.ai sandbox. The judgment that this loop can't run there — because the claude.ai code-execution sandbox is very unlikely to ship the Claude Code CLI binary — is reasoned, not sourced. Treat it with the same caution as the report's own UNCONFIRMED items until someone actually tries it. See `qa-deep.md` for how a user reaches this tier and `environments.md` for the same caveat.
 
 ## Practical note carried from the optimizer's own prompt text
 
