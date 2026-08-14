@@ -11,7 +11,7 @@ Full task details, acceptance criteria, and dependencies: `plan.md`. Spec: `../S
 
 ## Phase 1: Golden-path slice
 - [x] 3. Elicitation working session with Owen → `tasks/elicitation-decisions.md`
-- [ ] 4. `references/elicitation.md`
+- [x] 4. `references/elicitation.md`
 - [ ] 5. SKILL.md v0 — enduring core, teaching voice, router (≤300 lines)
 - [ ] 6. `references/qa-light.md`
 - [x] 7. Dated tactics files ×4 (stamped, sourced)
