@@ -154,9 +154,9 @@ naming what was tried:
 > — not a guarantee, but a measured one."
 
 Never let the number stand in for the caveat next to it — a high pass rate
-next to a grader's note about a weak assertion is not a clean bill of
-health, and saying so is what makes this tier's evidence better than a
-vibe, not just bigger.
+next to a grader's note about a weak assertion still leaves the important
+question open, and saying so is what makes this tier's evidence better
+than a vibe, not just bigger.
 
 ## 7. On claude.ai, without Claude Code
 

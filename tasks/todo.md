@@ -31,7 +31,7 @@ Full task details, acceptance criteria, and dependencies: `plan.md`. Spec: `../S
 - [x] 11. `references/qa-deep.md`
 - [x] 12. INQ restyle of eval viewer + eval_review.html
 - [x] 13. Description + triggering pass (≤200 chars; trigger eval set; optimization loop) — description PROVISIONAL, Owen to confirm pick per tasks/description-candidates.md
-- [ ] 14. Clean-room + license audit → `tasks/cleanroom-audit.md`
+- [x] 14. Clean-room + license audit → `tasks/cleanroom-audit.md`
 
 ### Checkpoint D
 - [ ] SPEC success-criteria sweep (non-manual items)
