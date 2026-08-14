@@ -19,7 +19,7 @@ P01–P06 (existing Lumen Health subscribers, mixed device: 4 mobile, 2 desktop)
 1. **Finding:** Shipping cost revealed only at the final review step reads as
    a bait-and-switch and causes last-second abandonment.
    **Evidence:** "Wait, it wasn't this much a second ago — I feel like I'm
-   being tricked" (P02, mobile). P04 and P05 independently closed the tab at
+   being tricked" (P04, mobile). P03 and P05 independently closed the tab at
    this exact step without completing.
    **Confidence:** High (5 of 6 participants hesitated or dropped at this
    step)

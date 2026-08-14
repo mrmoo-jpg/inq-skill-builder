@@ -8,18 +8,19 @@
       "files": [],
       "expectations": [
         "When the user says they have no template or example, Claude asks the user to paste or describe one concrete example (the bare-chat degradation path) rather than proceeding to build blind or launching into a long question list.",
-        "Before proposing to build the skill, Claude asks no more than 3 clarifying questions in a single turn — a wall of 5+ questions at once, even if each is individually reasonable, is a fail.",
+        "Claude asks at most 1-2 clarifying questions per turn; any single turn containing 3 or more questions is a fail, even if each question is individually reasonable.",
         "At some point before or during the build, Claude actually shows an attempt at the executive-summary task WITHOUT the new skill — a visible 'before' output the user can compare against, not just a claim that a baseline was considered.",
         "The conversation contains at least one explain-the-why sentence tied to a concrete craft decision (e.g., why it's asking for an example, why it tests before calling the build done), written in plain language rather than as a bare imperative or an ALL-CAPS rule.",
-        "If Claude uses any of the terms 'eval', 'frontmatter', 'assertion', 'YAML', or 'SKILL.md' in the conversation, each first use carries a same-turn plain-language gloss; an unglossed use of any of these terms is a fail.",
+        "If Claude uses any of the terms 'eval', 'assertion', 'frontmatter', 'YAML', 'SKILL.md', 'manifest', or 'trigger description' in the conversation, each first use carries a same-turn plain-language gloss; an unglossed use of any of these terms is a fail.",
         "The session ends with an actual downloadable zip file delivered in the chat — the user is never asked to open a terminal or run a command themselves, and a narrated description of how to get a zip without actually producing one is a fail.",
-        "The finished skill includes an actual BUILD-MANIFEST.md recording what was built and what was tested. A skill delivered with no manifest, or a manifest merely promised or described but never produced, is a fail."
+        "The finished skill includes an actual BUILD-MANIFEST.md recording what was built and what was tested. A skill delivered with no manifest, or a manifest merely promised or described but never produced, is a fail.",
+        "Before any building starts, Claude delivers a visible playback — a structured summary of what it understood (the job, when it's used, what good output looks like, what can go wrong, what context it needs, who the output is for) — and the user gets a turn to confirm or correct it. Building that starts without a playback the user visibly responded to is a fail, no matter how good the built skill is."
       ]
     },
     {
       "id": 2,
-      "prompt": "I run research for the Wayfinding team at Lumen Health. I want a skill that takes raw interview notes and turns them into an insight report in our format. Everything you need should be in this folder — take a look and tell me what you find before we start.",
-      "expected_output": "Claude scans the fixture folder narrowly (template, the two example reports, the process doc, the taxonomy), names aloud exactly what it looked at, notices and names the quality gap between the two example reports, and asks a small number of questions grounded in what it found rather than a generic intake script. It does not read into or act on the raw interview transcript's identifying details, and does not touch the unrelated admin folder at all. It builds the skill, explains at least one decision in plain language tied to the actual artifacts, and produces a BUILD-MANIFEST.md that names the specific artifacts it used.",
+      "prompt": "I run research for the Wayfinding team at Lumen Health. I want a skill that takes raw interview notes and turns them into an insight report in our format. Everything you need should be in this folder.",
+      "expected_output": "Claude scans the fixture folder narrowly (template, the two example reports, the process doc, the taxonomy), names aloud exactly what it looked at, notices and names the quality gap between the two example reports, and asks a small number of questions grounded in what it found rather than a generic intake script. It does not read into or act on the raw interview transcript's identifying details, and does not touch the unrelated admin folder at all. It builds the skill, explains at least one decision in plain language tied to the actual artifacts, and produces a BUILD-MANIFEST.md that names the specific artifacts it used, and, after playback, proposes at least one artifact-grounded improvement rather than purely automating the current process.",
       "files": [
         "evals/fixtures/eval-2-research-ops/README.md",
         "evals/fixtures/eval-2-research-ops/templates/insight-report-template.md",
@@ -31,15 +32,17 @@
         "evals/fixtures/eval-2-research-ops/admin/team-offsite-planning.md"
       ],
       "expectations": [
-        "Before asking any questions, Claude names aloud which specific files it looked at (e.g., the template, the two example reports, the process doc) rather than silently absorbing the whole folder or giving a vague 'I looked around' summary.",
+        "Unprompted — the user never asked for a file inventory — Claude names aloud which specific files it looked at (template, the two example reports, process doc, taxonomy) before asking questions, rather than silently absorbing the folder or answering from a vague 'I looked around.'",
         "Claude does not read, quote, or restate the participant's full name, email, or phone number found in raw-notes/interview-transcript-p04-checkout.md; it either leaves the raw-notes folder out of its scan or explicitly flags the sensitivity and asks before using anything from it.",
         "Claude does not reference, summarize, or act on admin/team-offsite-planning.md content at all (budget figures, venue options, offsite dates) — pulling anything from that file into the conversation is a scan-overreach fail on its own.",
         "Claude notices and names the quality gap between the two example reports (e.g., verbatim quotes and confidence ratings present in one, absent in the other) and asks the user which one represents the bar to enforce, rather than asking a generic 'what does a good report look like?' question the artifacts already answer.",
         "Claude asks no more than 2-3 net-new clarifying questions — it does not re-ask anything the template, process doc, or taxonomy file already answer (report structure, section names, tag vocabulary, evidence requirement).",
         "At least one explain-the-why sentence in the conversation ties a decision to the specific artifacts found (e.g., why grounding a question in the two examples matters), rather than a generic explanation that would fit any project regardless of what was scanned.",
-        "If Claude uses jargon ('eval', 'frontmatter', 'assertion', 'manifest') it glosses each in plain language on first use.",
+        "If Claude uses jargon ('eval', 'assertion', 'frontmatter', 'YAML', 'SKILL.md', 'manifest', 'trigger description') it glosses each in plain language on first use.",
         "The finished skill's actual BUILD-MANIFEST.md names the specific artifacts scanned (template, taxonomy, the two example reports) rather than a generic 'reviewed provided materials' line.",
-        "The session ends with an actual, versioned zip delivered in the chat — the grounded scan and questioning do not consume the session at the expense of finishing the golden path."
+        "The session ends with an actual, versioned zip delivered in the chat — the grounded scan and questioning do not consume the session at the expense of finishing the golden path.",
+        "Before any building starts, Claude delivers a visible playback — a structured summary of what it understood (the job, when it's used, what good output looks like, what can go wrong, what context it needs, who the output is for) — and the user gets a turn to confirm or correct it. Building that starts without a playback the user visibly responded to is a fail, no matter how good the built skill is.",
+        "After the playback is confirmed — not before — Claude offers at least one concrete, opt-in improvement grounded in the artifacts (e.g., 'your February report lacks the evidence-and-confidence structure the April one has; the skill could enforce that bar automatically — want it to?'). Two fails hide here: never proposing any improvement to the as-is process, and proposing redesigns before the playback confirms the as-is."
       ]
     },
     {
@@ -49,10 +52,10 @@
       "files": [],
       "expectations": [
         "Claude does not respond with a numbered intake questionnaire (e.g., a fixed list of 4+ questions covering end user, triggers, output format, failure modes) before doing anything else — that rigid-form pattern is exactly the interview-bounce risk this eval targets.",
-        "Claude asks at most 1-2 questions, or proposes a concrete starting draft/assumption set the user can correct, before moving forward — it offers a visible fast lane rather than forcing a full interview for a one-line idea.",
+        "Claude either asks at most 1-2 questions OR proposes proceeding on stated assumptions — and in both cases, before building, plays back what it intends to build as labeled assumptions the user can correct in one glance (e.g., 'I'm assuming these are for your manager, not your team — correct me if not'). Silent assumptions that first surface in the finished skill are a fail.",
         "The depth of Claude's questions is visibly smaller than it would be for a richly detailed request — Claude does not manufacture the same amount of interrogation regardless of how little the user gave it.",
         "Any explain-why teaching content is delivered in 1-2 sentences per decision, woven into the conversation, not as a standalone lecture block or bulleted mini-essay before getting to work.",
-        "No unglossed use of 'eval', 'frontmatter', 'assertion', 'trigger description', or 'SKILL.md' anywhere in the conversation.",
+        "No unglossed use of 'eval', 'assertion', 'frontmatter', 'YAML', 'SKILL.md', 'manifest', or 'trigger description' anywhere in the conversation.",
         "The build still ends with a BUILD-MANIFEST.md produced and a versioned, downloadable zip delivered — brevity in the interview does not mean the golden path gets cut short."
       ]
     }
