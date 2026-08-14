@@ -28,7 +28,7 @@ Full task details, acceptance criteria, and dependencies: `plan.md`. Spec: `../S
 - [x] Evals pass; Owen approves the experience (with-skill ~95%; better-question beat 8/8 on re-measure)
 
 ## Phase 3: Deep tier + polish
-- [ ] 11. `references/qa-deep.md`
+- [x] 11. `references/qa-deep.md`
 - [x] 12. INQ restyle of eval viewer + eval_review.html
 - [ ] 13. Description + triggering pass (≤200 chars; trigger eval set; optimization loop)
 - [ ] 14. Clean-room + license audit → `tasks/cleanroom-audit.md`
