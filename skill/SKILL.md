@@ -118,9 +118,12 @@ Write the skill from the confirmed frame. Craft notes that matter most:
   own instructions need an illustrative example — "a note like 'the total
   jumped at checkout'" — make one up. Never lift a real name, email, quote,
   or other identifying detail out of the user's source material to use as
-  the example, even to illustrate the very rule that strips it. The skill
-  ships and travels; a real person's detail baked into it as a sample
-  outlives the conversation that had permission for it.
+  the example, even to illustrate the very rule that strips it — that rule
+  is the sneakiest case, because the real name is right there and feels like
+  the natural illustration. Reach for an obvious stand-in instead: a bracket
+  like `[participant name]`, or a plainly-invented name no one will mistake
+  for real. The skill ships and travels; a real person's detail baked into
+  it as a sample outlives the conversation that had permission for it.
 - **Explain why inside the built skill too.** Instructions hold up better
   when they carry their reasons — a skill that says *why* the rule exists
   lets Claude apply it sensibly to cases the wording didn't anticipate.
@@ -155,7 +158,11 @@ skill's folder: what was built, from what sources, what was tested, when.
 Skills age — the platform moves, the user's process moves — and the manifest
 is what makes a future "is this still good?" check-up cheap. Write it now,
 while the answers are one glance away; reconstructing them months later
-costs an afternoon.
+costs an afternoon. This is the easiest step to skip — the build has gone
+well, the zip is in sight, and it feels optional. It isn't: a skill handed
+over without its manifest has quietly lost the one thing that makes the
+check-up in step 7 a five-minute glance instead of a rebuild. Don't deliver
+without it.
 
 ### 6. Package and deliver
 
