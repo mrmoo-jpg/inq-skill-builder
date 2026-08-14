@@ -34,7 +34,7 @@ Full task details, acceptance criteria, and dependencies: `plan.md`. Spec: `../S
 - [x] 14. Clean-room + license audit → `tasks/cleanroom-audit.md`
 
 ### Checkpoint D
-- [ ] SPEC success-criteria sweep (non-manual items)
+- [x] SPEC success-criteria sweep (non-manual items) — all PASS except description sign-off (Owen gate, carried to Task 15); manual items deferred per plan
 
 ## Phase 4: Package + real world
 - [ ] 15. Package v1 + install tests (Claude Code auto; Claude.ai manual by Owen)
