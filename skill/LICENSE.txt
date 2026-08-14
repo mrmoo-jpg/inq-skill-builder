@@ -228,10 +228,28 @@ Copyright 2026 Anthropic, PBC., licensed under the Apache License, Version 2.0
   assets/eval_review.html
   references/schemas.md
 
-Significant changes made to these files: none as of this commit — vendored
-byte-identical to the upstream source above. Any future modification to a
-listed file will be noted here per Apache License 2.0 §4(b), alongside the
-commit that makes it.
+Significant changes made to these files:
+
+  eval-viewer/viewer.html   — modified: visual restyle (INQ design tokens:
+                               paper/ink palette, state-dependent accent
+                               pairs, Roboto Flex/Mono font stacks with
+                               system-font fallbacks, hairline rules; corner
+                               radii tightened to 2px as a visual-fit
+                               judgment call, not sourced from tokens.css).
+                               No markup, script, or interaction logic
+                               changed — only CSS custom property values,
+                               literal color/font declarations, and the
+                               removal of the Google Fonts CDN link in favor
+                               of self-contained fallback stacks.
+  assets/eval_review.html   — modified: visual restyle (same INQ tokens and
+                               scope as above; additionally one hardcoded
+                               color literal inside a JS template string
+                               replaced with a CSS variable — no behavior
+                               change).
+
+All other vendored files remain byte-identical to the upstream source above.
+Any future modification to a listed file will be noted here per Apache
+License 2.0 §4(b), alongside the commit that makes it.
 
 All other files in this repository (elicitation, SKILL.md, tactics, and other
 `inq-skill-builder`-authored content) are original work and are not covered

@@ -4,32 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eval Review</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
   <style>
+    /*
+     * INQ design tokens (see irrelevantnextquarter/src/styles/tokens.css).
+     * Values are transcribed rather than @import-ed, since this file must
+     * stay a single self-contained document distributable inside the skill
+     * zip and usable offline. Fonts use system-stack fallbacks only — no
+     * font files are bundled with the skill.
+     */
     :root {
-      --bg: #faf9f5;
-      --surface: #ffffff;
-      --border: #e8e6dc;
-      --text: #141413;
-      --text-muted: #b0aea5;
-      --accent: #d97757;
-      --accent-hover: #c4613f;
-      --green: #788c5d;
-      --green-bg: #eef2e8;
-      --red: #c44;
-      --red-bg: #fceaea;
-      --header-bg: #141413;
-      --header-text: #faf9f5;
-      --radius: 6px;
+      /* ---- INQ primitives ---- */
+      --inq-paper: #d7c9ac;
+      --inq-paper-dim: #c7b28a;
+      --inq-ink: #1c1c1c;
+      --inq-ink-dark: #0a0a0a;
+      --inq-frame: #474747;
+      --inq-accent-on-paper: #9a302e;      /* 4.53:1 on paper */
+      --inq-accent-on-paper-dim: #802826;  /* 4.52:1 on paper-dim */
+      --inq-accent-on-ink: #cf625f;        /* 4.52:1 on ink */
+      /* 80% ink keeps ≥4.5:1 against both --paper and --paper-dim (AA,
+         checked against the worst case, paper-dim, at 5.09:1). */
+      --inq-muted: color-mix(in srgb, var(--inq-ink) 80%, var(--inq-paper) 20%);
+      --inq-hairline: color-mix(in srgb, var(--inq-frame) 55%, transparent);
+
+      /* ---- viewer semantic slots (same names as before the restyle;
+         only the values changed, so no selector below needed to move) ---- */
+      --bg: var(--inq-paper);
+      --surface: var(--inq-paper-dim);
+      --border: var(--inq-hairline);
+      --text: var(--inq-ink);
+      --text-muted: var(--inq-muted);
+      --accent: var(--inq-accent-on-paper);
+      --accent-hover: var(--inq-accent-on-paper-dim);
+      /* Pass/fail colors aren't part of tokens.css (it defines interactive
+         accent pairs, not status colors); chosen and contrast-checked here
+         (WCAG AA, ≥4.5:1) against both --paper and --paper-dim, since
+         badges and table cells appear on either. */
+      --green: #28401a;   /* 6.98:1 on paper, 5.53:1 on paper-dim */
+      --green-bg: color-mix(in srgb, #28401a 14%, var(--inq-paper));
+      --red: var(--inq-accent-on-paper-dim); /* 5.71:1 on paper, 4.52:1 on paper-dim */
+      --red-bg: color-mix(in srgb, var(--inq-accent-on-paper-dim) 14%, var(--inq-paper));
+      --header-bg: var(--inq-ink-dark);
+      --header-text: var(--inq-paper);
+      --radius: 2px;
+
+      --font-sans: 'Roboto Flex', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-mono: 'Roboto Mono', ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Lora', Georgia, serif;
+      font-family: var(--font-sans);
       background: var(--bg);
       color: var(--text);
       height: 100vh;
@@ -48,7 +75,7 @@
       flex-shrink: 0;
     }
     .header h1 {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-sans);
       font-size: 1.25rem;
       font-weight: 600;
     }
@@ -81,7 +108,7 @@
       flex-shrink: 0;
     }
     .section-header {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-sans);
       padding: 0.75rem 1rem;
       font-size: 0.75rem;
       font-weight: 500;
@@ -100,7 +127,7 @@
       display: inline-block;
       padding: 0.2rem 0.625rem;
       border-radius: 9999px;
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-sans);
       font-size: 0.6875rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -109,12 +136,12 @@
       vertical-align: middle;
     }
     .config-badge.config-primary {
-      background: rgba(33, 150, 243, 0.12);
-      color: #1976d2;
+      background: color-mix(in srgb, var(--inq-accent-on-paper) 15%, var(--inq-paper));
+      color: var(--inq-accent-on-paper);
     }
     .config-badge.config-baseline {
-      background: rgba(255, 193, 7, 0.15);
-      color: #f57f17;
+      background: color-mix(in srgb, var(--inq-frame) 20%, var(--inq-paper));
+      color: var(--inq-frame);
     }
 
     /* ---- Prompt ---- */
@@ -140,7 +167,7 @@
       color: var(--text-muted);
       background: var(--bg);
       border-bottom: 1px solid var(--border);
-      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      font-family: var(--font-mono);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -150,7 +177,7 @@
       color: var(--accent);
       text-decoration: none;
       cursor: pointer;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: var(--font-sans);
       font-weight: 500;
       opacity: 0.8;
     }
@@ -167,7 +194,7 @@
       line-height: 1.5;
       white-space: pre-wrap;
       word-break: break-word;
-      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      font-family: var(--font-mono);
     }
     .output-file-content img {
       max-width: 100%;
@@ -251,7 +278,7 @@
     .feedback-textarea:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
     }
     .feedback-status {
       font-size: 0.75rem;
@@ -333,7 +360,7 @@
       flex-shrink: 0;
     }
     .view-tab {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-sans);
       padding: 0.625rem 1.25rem;
       font-size: 0.8125rem;
       font-weight: 500;
@@ -373,7 +400,7 @@
       border: 1px solid var(--border);
     }
     .benchmark-table th {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-sans);
       background: var(--header-bg);
       color: var(--header-text);
       font-weight: 500;
@@ -382,13 +409,13 @@
       letter-spacing: 0.04em;
     }
     .benchmark-table tr:hover { background: var(--bg); }
-    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
-    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
-    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
-    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-with { background: color-mix(in srgb, var(--inq-accent-on-paper) 6%, var(--inq-paper)); }
+    .benchmark-table tr.benchmark-row-without { background: color-mix(in srgb, var(--inq-frame) 10%, var(--inq-paper)); }
+    .benchmark-table tr.benchmark-row-with:hover { background: color-mix(in srgb, var(--inq-accent-on-paper) 12%, var(--inq-paper)); }
+    .benchmark-table tr.benchmark-row-without:hover { background: color-mix(in srgb, var(--inq-frame) 18%, var(--inq-paper)); }
     .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
-    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
-    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: color-mix(in srgb, var(--inq-accent-on-paper) 12%, var(--inq-paper)); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: color-mix(in srgb, var(--inq-frame) 18%, var(--inq-paper)); }
     .benchmark-delta-positive { color: var(--green); font-weight: 600; }
     .benchmark-delta-negative { color: var(--red); font-weight: 600; }
     .benchmark-notes {
@@ -398,7 +425,7 @@
       padding: 1rem;
     }
     .benchmark-notes h3 {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-sans);
       font-size: 0.875rem;
       margin-bottom: 0.75rem;
     }
@@ -429,7 +456,7 @@
       flex-shrink: 0;
     }
     .nav-btn {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-sans);
       padding: 0.5rem 1.25rem;
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -449,7 +476,7 @@
       cursor: not-allowed;
     }
     .done-btn {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--font-sans);
       padding: 0.5rem 1.5rem;
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -839,7 +866,7 @@
           if (wb.SheetNames.length > 1) {
             const sheetLabel = document.createElement("div");
             sheetLabel.style.cssText =
-              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+              "font-weight:600; font-size:0.8rem; color:var(--text-muted); margin-top:0.5rem; margin-bottom:0.25rem;";
             sheetLabel.textContent = "Sheet: " + sheetName;
             container.appendChild(sheetLabel);
           }
@@ -1126,7 +1153,7 @@
       let html = "";
 
       // Header
-      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<h2 style='font-family: var(--font-sans); margin-bottom: 0.5rem;'>Benchmark Results</h2>";
       html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
       if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
       if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
@@ -1194,7 +1221,7 @@
       if (runs.length > 0) {
         const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
 
-        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+        html += "<h3 style='font-family: var(--font-sans); margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
 
         const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
         const hasErrors = runs.some(r => r.result && r.result.errors > 0);
@@ -1203,7 +1230,7 @@
           const evalRuns = runs.filter(r => r.eval_id === evalId);
           const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
 
-          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += "<h4 style='font-family: var(--font-sans); margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
           html += '<table class="benchmark-table">';
           html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
           if (hasTime) html += "<th>Time (s)</th>";
