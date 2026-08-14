@@ -36,8 +36,9 @@ wherever it's copied or shared.
 ```markdown
 # Build Manifest — <skill name>
 
-**Built:** <YYYY-MM-DD>, with inq-skill-builder<, v<N> if you know it>
-**Package:** <filename delivered, e.g. report-cleaner-v1.zip>
+**Built:** <YYYY-MM-DD>, with inq-skill-builder (version <N>, if known)
+**Package:** <filename delivered, e.g. report-cleaner-v1.zip — the one field
+you can't fill yet at step 5; add it the moment step 6 produces the zip>
 
 ## What it does
 <One or two plain-language sentences — the job and who the output is for.>
@@ -61,7 +62,7 @@ actually typed that should keep working — e.g. "clean up my standup notes",
 "format this for Slack".>
 
 ## Tested
-**QA tier:** Light | Deep
+**QA tier:** <Light or Deep>
 <The plain-language tested/not-tested statement the QA step closed with —
 copy it verbatim rather than re-summarizing it.>
 
@@ -83,16 +84,21 @@ explicitly confirm. Write "None — every slot was confirmed" if true.>
 
 Every field above is something you already have by the time you reach step
 5 — the frame from elicitation, the tactics files you actually opened while
-building, the closing statement from whichever QA tier you ran, the filename
-you're about to hand over in step 6. Writing the manifest is transcription,
-not a new interview.
+building, the closing statement from whichever QA tier you ran. Writing the
+manifest is transcription, not a new interview.
 
-If a field seems to need information you don't have, that's a signal you're
-missing something earlier in the flow — go back and get it there, or write
-the field as honestly incomplete ("not tested" is a legitimate value; a
-vague guess dressed up as an answer is not). **Never** ask the user a fresh
-question just to fill a manifest field. The one exception is the "Tested"
-tier line, which should read exactly as delivered in step 4 — copy it, don't
+The one field that's a genuine exception is **Package**: step 5 runs before
+step 6 produces the zip, so there's no filename to record yet. Write
+everything else now, then return and add that one line the moment step 6
+delivers the file — not a new question for the user, just a second, shorter
+visit to a file you already opened once.
+
+If any other field seems to need information you don't have, that's a
+signal you're missing something earlier in the flow — go back and get it
+there, or write the field as honestly incomplete ("not tested" is a
+legitimate value; a vague guess dressed up as an answer is not). **Never**
+ask the user a fresh question just to fill a manifest field. The "Tested"
+tier line should read exactly as delivered in step 4 — copy it, don't
 paraphrase it.
 
 ## 3. The check-up flow: Keep / Improve / Update / Retire
@@ -134,7 +140,7 @@ diff.
      Next action: reread the affected tactics file(s) and patch the
      specific mechanic, then re-stamp the manifest.
    - **Retire** — the underlying job or process has changed enough that the
-     skill's core frame (§2's six slots, from elicitation.md) no longer
+     skill's core frame (elicitation.md's own six-slot frame, its §2) no longer
      matches reality. Next action: a fresh build, not a patch — treat it as
      a new elicitation, not a repair of the old one.
 5. **Don't hedge the verdict to cover multiple threads.** If both a tactic
