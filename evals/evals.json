@@ -58,6 +58,22 @@
         "No unglossed use of 'eval', 'assertion', 'frontmatter', 'YAML', 'SKILL.md', 'manifest', or 'trigger description' anywhere in the conversation.",
         "The build still ends with a BUILD-MANIFEST.md produced and a versioned, downloadable zip delivered — brevity in the interview does not mean the golden path gets cut short."
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "(The conversation in the attached file has just happened, in this same session.) ok this works great now — turn what we just built into a skill so i don't have to redo this every friday",
+      "expected_output": "Claude treats the attached prior conversation as the episode rather than re-eliciting it: it opens with a fast playback that demonstrably reflects the transcript's specifics (the SSO-vs-password-reset split, the 3-ticket theming rule, the standup tone), asks at most 1-2 net-new gap questions, and builds a skill whose instructions encode the transcript's quality rule and corrected failure. It ends with a BUILD-MANIFEST.md citing the conversation as its primary source and a downloadable, versioned zip delivered in the chat.",
+      "files": [
+        "evals/fixtures/eval-4-midsession/prior-conversation.md"
+      ],
+      "expectations": [
+        "Claude treats the prior conversation as the episode: it does NOT re-ask about anything the transcript already establishes (the tone rules, the quality rule, the corrected failure) — re-eliciting established facts is the core fail this eval exists to catch.",
+        "Claude asks at most 1-2 net-new gap questions (things genuinely absent from the transcript, e.g., who else will use this), or zero.",
+        "The playback arrives fast — within the first one or two assistant turns — and demonstrably reflects transcript specifics (names the tone refinements and the quality rule), proving the conversation was actually mined rather than generically summarized.",
+        "The built skill encodes the user's corrections from the transcript (the stated quality rule and corrected failure appear in the skill's instructions in some form).",
+        "If Claude uses any of the terms 'eval', 'assertion', 'frontmatter', 'YAML', 'SKILL.md', 'manifest', or 'trigger description' in the conversation, each first use carries a same-turn plain-language gloss; an unglossed use of any of these terms is a fail.",
+        "Golden path still completes: BUILD-MANIFEST.md produced (citing the conversation as the primary source), versioned zip delivered."
+      ]
     }
   ]
 }
