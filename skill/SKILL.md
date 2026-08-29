@@ -1,7 +1,6 @@
 ---
 name: inq-skill-builder
-# PROVISIONAL description — Owen must confirm or swap; candidates + scoring in tasks/description-candidates.md
-description: Turns tacit know-how into a packaged Claude skill, tested on real examples before delivery as a versioned zip. Use to build, improve, QA, or check up on a Claude skill, not general job skills.
+description: "Builds a working Claude skill from a process someone knows: scans examples, asks what's missing, tests it, packages an installable zip. Use to create, improve, test, or check up on a Claude skill."
 license: Apache-2.0
 ---
 

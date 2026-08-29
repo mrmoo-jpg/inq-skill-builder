@@ -30,14 +30,14 @@ Full task details, acceptance criteria, and dependencies: `plan.md`. Spec: `../S
 ## Phase 3: Deep tier + polish
 - [x] 11. `references/qa-deep.md`
 - [x] 12. INQ restyle of eval viewer + eval_review.html
-- [x] 13. Description + triggering pass (≤200 chars; trigger eval set; optimization loop) — description PROVISIONAL, Owen to confirm pick per tasks/description-candidates.md
+- [x] 13. Description + triggering pass (≤200 chars; trigger eval set; optimization loop) — final wording B′ approved by Owen 2026-08-17 (tasks/description-candidates.md)
 - [x] 14. Clean-room + license audit → `tasks/cleanroom-audit.md`
 
 ### Checkpoint D
 - [x] SPEC success-criteria sweep (non-manual items) — all PASS except description sign-off (Owen gate, carried to Task 15); manual items deferred per plan
 
 ## Phase 4: Package + real world
-- [ ] 15. Package v1 + install tests (Claude Code auto; Claude.ai manual by Owen) — auto half DONE (RC zip in dist/, Claude Code install + trigger PASS); remaining: Owen confirms description pick, re-cut v1, Claude.ai upload test
+- [ ] 15. Package v1 + install tests (Claude Code auto; Claude.ai manual by Owen) — v1 zip cut from approved description, Claude Code install + trigger PASS; remaining: Owen's Claude.ai upload + golden-path test
 - [ ] 16. Dogfood build #1 — Owen, real skill, in-repo
 - [ ] 17. Dogfood build #2 — non-engineer on Claude.ai → fixes → v2
 

@@ -122,3 +122,21 @@ points here. If the vendored loop becomes runnable later (different shell,
 or a fix to `run_eval.py`'s subprocess spawning), re-run it against
 `evals/trigger-set.json` with whichever description is current at that time
 and treat these scores as superseded by the measured result.
+
+## Decision (Owen, 2026-08-17)
+
+Owen's read: B reads better, and readability is half the point — the
+description is also human-facing brand copy on the skill picker and the
+download page. C's "tacit know-how" and "not general job skills" tail cost
+clarity for a small, unmeasured precision gain.
+
+**Applied: B′** — B's spine with C's one precision trick (say "Claude skill"
+in the closing clause too, so no trigger verb ends on a bare "skill");
+"real" dropped to fit the budget. 196 chars, quoted in YAML because of the
+colon.
+
+> Builds a working Claude skill from a process someone knows: scans
+> examples, asks what's missing, tests it, packages an installable zip.
+> Use to create, improve, test, or check up on a Claude skill.
+
+The PROVISIONAL frontmatter comment is removed; v1 re-cut from this text.
